@@ -1,0 +1,5 @@
+-- V017__refresh_token_timestamptz.sql
+-- Convierte columnas a timestamptz preservando el instante en UTC
+ALTER TABLE refresh_token
+  ALTER COLUMN expira_en TYPE timestamptz USING expira_en AT TIME ZONE 'UTC',
+  ALTER COLUMN creado_en TYPE timestamptz USING creado_en AT TIME ZONE 'UTC';
